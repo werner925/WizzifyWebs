@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizzify Webs | Web Design in Risiville, Meyerton</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0B14',
+                            card: '#13132B',
+                            accent: '#8B5CF6',
+                            purple: '#A855F7',
+                            blue: '#3B82F6',
+                            neon: '#06B6D4',
+                            glow: '#6366F1'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #07070E;
+            color: #F3F4F6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glow-purple {
+            box-shadow: 0 0 35px -5px rgba(168, 85, 247, 0.35);
+        }
+        .glow-blue {
+            box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.35);
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 25px 2px rgba(139, 92, 246, 0.3);
+            border-color: rgba(168, 85, 247, 0.6);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #A855F7 0%, #3B82F6 50%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            background: linear-gradient(#13132B, #13132B) padding-box,
+                        linear-gradient(135deg, #A855F7, #3B82F6) border-box;
+            border: 2px solid transparent;
+        }
+    </style>
+</head>
+<body class="bg-[#07070E] text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#07070E]/80 border-b border-purple-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-blue-500 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-purple-500/30 group-hover:scale-105 transition-transform">
+                    W
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-tight text-white">Wizzify<span class="text-purple-400">Webs</span></span>
+                    <span class="block text-[10px] uppercase tracking-widest text-blue-400 font-semibold -mt-1">Risiville • Meyerton</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+                <a href="#services" class="hover:text-purple-400 transition-colors">Services</a>
+                <a href="#pricing" class="hover:text-purple-400 transition-colors">Packages</a>
+                <a href="#calculator" class="hover:text-purple-400 transition-colors">Cost Calculator</a>
+                <a href="#about" class="hover:text-purple-400 transition-colors">About Werner</a>
+                <a href="#faq" class="hover:text-purple-400 transition-colors">FAQ</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="tel:0787712865" class="flex items-center gap-2 text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 py-2.5 px-4 rounded-full border border-slate-700 transition">
+                    <i class="fa-solid fa-phone text-purple-400"></i> 078 771 2865
+                </a>
+                <a href="https://wa.me/27787712865?text=Hi%20Werner,%20I%20want%20a%20website%20for%20my%20business!" target="_blank" class="flex items-center gap-2 text-xs font-bold bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white py-2.5 px-5 rounded-full shadow-lg shadow-purple-900/40 hover:scale-105 transition-all">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Let's Chat
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#0D0D1A] border-b border-purple-900/40 px-6 py-6 space-y-4">
+            <a href="#services" class="mobile-link block text-slate-200 font-medium hover:text-purple-400">Services</a>
+            <a href="#pricing" class="mobile-link block text-slate-200 font-medium hover:text-purple-400">Packages (R300-R500)</a>
+            <a href="#calculator" class="mobile-link block text-slate-200 font-medium hover:text-purple-400">Cost Calculator</a>
+            <a href="#about" class="mobile-link block text-slate-200 font-medium hover:text-purple-400">About Werner</a>
+            <a href="#faq" class="mobile-link block text-slate-200 font-medium hover:text-purple-400">FAQ</a>
+            <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+                <a href="tel:0787712865" class="w-full text-center py-2.5 bg-slate-800 rounded-xl text-slate-200 font-bold text-sm">
+                    <i class="fa-solid fa-phone text-purple-400 mr-2"></i> Call 078 771 2865
+                </a>
+                <a href="https://wa.me/27787712865?text=Hi%20Werner,%20I'm%20interested%20in%20a%20website!" target="_blank" class="w-full text-center py-2.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl text-white font-bold text-sm">
+                    <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp Werner
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden">
+        <!-- Glow Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"></div>
+        <div class="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-blue-600/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-950/60 border border-purple-700/50 text-purple-300 text-xs font-semibold mb-8 animate-float">
+                <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>Based in Risiville, Meyerton • High Impact Websites</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                Get Your Business Online<br>
+                <span class="gradient-text">Without Paying A Fortune</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-slate-300 text-lg sm:text-xl font-normal mb-10 leading-relaxed">
+                Modern, fast, and fully responsive websites crafted by <strong class="text-purple-300">Werner Roos</strong>. Premium designs made super affordable at 
+                <span class="underline decoration-purple-500 decoration-2 font-bold text-white">R300 to R500 / month</span>.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+                <a href="https://wa.me/27787712865?text=Hi%20Werner!%20I%20want%20to%20get%20my%20business%20online." target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold text-base shadow-lg shadow-purple-600/30 hover:scale-105 transition-all flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    Get Started On WhatsApp
+                </a>
+                <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold text-base transition flex items-center justify-center gap-2">
+                    View Pricing <i class="fa-solid fa-arrow-right text-purple-400 text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Highlights Banner -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-center">
+                <div class="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80">
+                    <p class="text-2xl font-black text-purple-400">R300 - R500</p>
+                    <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold mt-1">Affordable Monthly</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80">
+                    <p class="text-2xl font-black text-blue-400">100% Mobile</p>
+                    <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold mt-1">Responsive Design</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80">
+                    <p class="text-2xl font-black text-cyan-400">Local Service</p>
+                    <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold mt-1">Meyerton / Risiville</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80">
+                    <p class="text-2xl font-black text-indigo-400">Fast Turnaround</p>
+                    <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold mt-1">Quick Launch</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-[#090914] border-y border-slate-800/60 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-2">What We Build For You</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Powerful Web Solutions tailored for local business growth</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="p-8 rounded-3xl bg-[#121226] border border-slate-800 transition-all duration-300 hover:border-purple-500/50 hover:bg-[#161630]">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl mb-6">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Custom Business Websites</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Clean, high-converting layouts that represent your brand professionally and turn local visitors into paying customers.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2">
+                        <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Customized brand colors & logo styling</li>
+                        <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Clear call-to-actions</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="p-8 rounded-3xl bg-[#121226] border border-slate-800 transition-all duration-300 hover:border-blue-500/50 hover:bg-[#161630]">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-900/40 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xl mb-6">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Mobile & Tablet Optimized</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Over 70% of South African web traffic comes from mobile phones. We make sure your website looks perfect on every screen.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2">
+                        <li><i class="fa-solid fa-check text-blue-400 mr-2"></i> Fast loading on mobile data</li>
+                        <li><i class="fa-solid fa-check text-blue-400 mr-2"></i> Click-to-call & instant WhatsApp buttons</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-8 rounded-3xl bg-[#121226] border border-slate-800 transition-all duration-300 hover:border-cyan-500/50 hover:bg-[#161630]">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-900/40 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mb-6">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">SEO & Maintenance</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Get noticed in Meyerton, Vereeniging, and beyond with search engine friendly code and worry-free monthly support.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Basic Google Search Setup</li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Regular site backups & updates</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-3 py-1 bg-purple-900/50 border border-purple-600/40 text-purple-300 rounded-full text-xs font-semibold uppercase tracking-wider">Unbeatable Pricing</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-4 mb-4">Budget-Friendly Monthly Plans</h2>
+                <p class="text-slate-400 text-base">No high upfront developer fees. Pick a plan that fits your business budget.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Card 1: Starter -->
+                <div class="p-8 rounded-3xl bg-[#101024] border border-slate-800 flex flex-col justify-between hover:border-slate-600 transition">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-2xl font-bold text-white">Starter Web</h3>
+                            <span class="text-xs font-bold text-slate-400 uppercase bg-slate-800 px-3 py-1 rounded-full">Essential</span>
+                        </div>
+                        <p class="text-slate-400 text-xs mb-6">Ideal for small local businesses, personal services, and sole traders.</p>
+                        
+                        <div class="flex items-baseline gap-2 mb-6 border-b border-slate-800 pb-6">
+                            <span class="text-4xl sm:text-5xl font-extrabold text-white">R300</span>
+                            <span class="text-slate-400 font-medium">/ month</span>
+                        </div>
+
+                        <ul class="space-y-4 text-sm text-slate-300 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-purple-400 text-base"></i>
+                                <span>Modern 1 to 3 Page Responsive Website</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-purple-400 text-base"></i>
+                                <span>Direct WhatsApp & Call Buttons</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-purple-400 text-base"></i>
+                                <span>Basic Contact Form</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-purple-400 text-base"></i>
+                                <span>Fast Mobile Performance</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-purple-400 text-base"></i>
+                                <span>Monthly Content Maintenance Included</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="https://wa.me/27787712865?text=Hi%20Werner,%20I'm%20interested%20in%20the%20Starter%20Web%20R300/pm%20package!" target="_blank" class="w-full py-3.5 rounded-xl bg-slate-800 hover:bg-purple-600 text-white font-bold text-center transition">
+                        Select Starter (R300/pm)
+                    </a>
+                </div>
+
+                <!-- Card 2: Pro Business -->
+                <div class="p-8 rounded-3xl bg-[#13132D] border-2 border-purple-500 flex flex-col justify-between glow-purple relative">
+                    <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-[11px] font-black uppercase tracking-widest py-1 px-4 rounded-full shadow-md">
+                        Most Popular
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-2xl font-bold text-white">Pro Business</h3>
+                            <span class="text-xs font-bold text-purple-300 uppercase bg-purple-900/60 px-3 py-1 rounded-full">Full Featured</span>
+                        </div>
+                        <p class="text-slate-300 text-xs mb-6">Designed for companies needing a stronger online presence and lead collection.</p>
+                        
+                        <div class="flex items-baseline gap-2 mb-6 border-b border-purple-900/50 pb-6">
+                            <span class="text-4xl sm:text-5xl font-extrabold text-white">R500</span>
+                            <span class="text-slate-400 font-medium">/ month</span>
+                        </div>
+
+                        <ul class="space-y-4 text-sm text-slate-200 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-cyan-400 text-base"></i>
+                                <span>Multi-page Custom Web Design (Up to 6 pages)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-cyan-400 text-base"></i>
+                                <span>Google Maps & Local Search Setup</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-cyan-400 text-base"></i>
+                                <span>Advanced Lead Capture & Quote Requests</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-cyan-400 text-base"></i>
+                                <span>Social Media Integration (Facebook, Insta, etc.)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-cyan-400 text-base"></i>
+                                <span>Priority Monthly Maintenance & Minor Updates</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="https://wa.me/27787712865?text=Hi%20Werner,%20I'm%20interested%20in%20the%20Pro%20Business%20R500/pm%20package!" target="_blank" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold text-center shadow-lg shadow-purple-900/50 transition">
+                        Select Pro (R500/pm)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Package Calculator -->
+    <section id="calculator" class="py-16 bg-[#090916] border-y border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="p-8 sm:p-10 rounded-3xl bg-[#111124] border border-purple-900/40">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-white mb-2"><i class="fa-solid fa-calculator text-purple-400 mr-2"></i> Interactive Package Estimate</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm">Customize your options to see your recommended monthly rate.</p>
+                </div>
+
+                <div class="space-y-6 max-w-xl mx-auto">
+                    <!-- Option 1: Base Tier -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Website Complexity</label>
+                        <select id="calcPages" class="w-full bg-[#090914] border border-slate-700 text-white rounded-xl p-3 focus:outline-none focus:border-purple-500">
+                            <option value="300">Basic Business Site (1-3 Pages) - R300/pm</option>
+                            <option value="400">Standard Business Site (4-5 Pages) - R400/pm</option>
+                            <option value="500">Complete Pro Package (Up to 7 Pages) - R500/pm</option>
+                        </select>
+                    </div>
+
+                    <!-- Option 2: Add-ons -->
+                    <div class="space-y-3 pt-2">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">Optional Extras</label>
+                        <label class="flex items-center gap-3 p-3 rounded-xl bg-[#080812] border border-slate-800 cursor-pointer hover:border-slate-700">
+                            <input type="checkbox" id="calcGoogle" value="0" class="w-4 h-4 text-purple-600 rounded bg-slate-900 border-slate-700 focus:ring-0" checked>
+                            <span class="text-sm text-slate-300">Google My Business & Local Map Listing (Included)</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 rounded-xl bg-[#080812] border border-slate-800 cursor-pointer hover:border-slate-700">
+                            <input type="checkbox" id="calcFast" value="0" class="w-4 h-4 text-purple-600 rounded bg-slate-900 border-slate-700 focus:ring-0" checked>
+                            <span class="text-sm text-slate-300">Mobile Speed Optimization (Included)</span>
+                        </label>
+                    </div>
+
+                    <!-- Price Output -->
+                    <div class="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Estimated Monthly Fee</span>
+                            <span id="calculatedTotal" class="text-3xl font-extrabold text-purple-400">R300 / month</span>
+                        </div>
+                        <button id="calculatorSubmit" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp"></i> Request This Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Werner Roos & Location -->
+    <section id="about" class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Info -->
+                <div>
+                    <span class="text-xs font-bold text-blue-400 uppercase tracking-widest">Local & Reliable</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-6">Meet Werner Roos & Wizzify Webs</h2>
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        Hi, I’m <strong>Werner Roos</strong>, owner and lead web designer at <strong>Wizzify Webs</strong>. Located in <strong>Risiville, Meyerton</strong>, I specialize in building functional, great-looking websites for businesses in South Africa and beyond.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        My goal is simple: offer <strong>high-quality, modern web designs at prices local businesses can actually afford</strong>. Whether you need a simple online digital business card or a full company showcase, I handle the setup so you can focus on running your business.
+                    </p>
+
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3 text-slate-200">
+                            <div class="w-8 h-8 rounded-lg bg-purple-900/50 flex items-center justify-center text-purple-400">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <span class="text-sm font-medium">Risiville, Meyerton, Gauteng, South Africa</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-200">
+                            <div class="w-8 h-8 rounded-lg bg-purple-900/50 flex items-center justify-center text-purple-400">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <a href="tel:0787712865" class="text-sm font-medium hover:text-purple-400 transition">078 771 2865</a>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-200">
+                            <div class="w-8 h-8 rounded-lg bg-purple-900/50 flex items-center justify-center text-purple-400">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                            <span class="text-sm font-medium">Direct Developer Support (No middleman)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Card -->
+                <div class="p-8 rounded-3xl bg-gradient-to-br from-[#13132B] to-[#0A0A16] border border-slate-800 glow-blue text-center relative">
+                    <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-purple-600 to-blue-500 p-1 mb-6">
+                        <div class="w-full h-full bg-[#13132B] rounded-full flex items-center justify-center text-3xl font-black text-purple-400">
+                            WR
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-1">Werner Roos</h3>
+                    <p class="text-xs text-purple-400 uppercase tracking-wider font-semibold mb-6">Owner & Lead Developer</p>
+                    
+                    <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-left text-xs text-slate-300 space-y-2">
+                        <p><i class="fa-solid fa-quote-left text-purple-500 mr-1"></i> "A good website shouldn't break the bank. With monthly plans between R300 and R500, every business in Meyerton and surrounding areas can afford to have a modern online presence."</p>
+                    </div>
+
+                    <a href="https://wa.me/27787712865?text=Hi%20Werner,%20I'd%20like%20to%20discuss%20a%20website!" target="_blank" class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Chat Directly with Werner
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ / Need More Details Section -->
+    <section id="faq" class="py-20 bg-[#090914] border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold text-purple-400 uppercase tracking-widest">Need More Details?</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="p-6 rounded-2xl bg-[#121226] border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-2"><i class="fa-solid fa-circle-question text-purple-400 mr-2"></i> How does the R300 - R500 monthly payment work?</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Instead of paying thousands of Rands upfront for a website, you pay an easy monthly fee between R300 and R500. This includes your web design, basic maintenance, and ongoing support.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="p-6 rounded-2xl bg-[#121226] border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-2"><i class="fa-solid fa-circle-question text-purple-400 mr-2"></i> How quickly can my website be ready?</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Once I receive your text, pictures, and business details, most sites are ready within 3 to 7 working days!
+                    </p>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="p-6 rounded-2xl bg-[#121226] border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-2"><i class="fa-solid fa-circle-question text-purple-400 mr-2"></i> What if I don't have a logo or images?</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        No worries at all! I can help you set up clean stock photos, create simple text logos, and style your color scheme nicely.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="p-6 rounded-2xl bg-[#121226] border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-2"><i class="fa-solid fa-circle-question text-purple-400 mr-2"></i> Are you based in Meyerton?</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Yes! Wizzify Webs is based in Risiville, Meyerton. We serve clients locally in the Vaal area as well as anywhere in South Africa.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Quote Form Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Left: Quick Contact Info -->
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-purple-400 uppercase tracking-widest">Get In Touch</span>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2 mb-6">Let's Build Your Website</h2>
+                        <p class="text-slate-300 text-base mb-8 leading-relaxed">
+                            Have questions or ready to get started? Send a message using the form or reach out directly via WhatsApp or phone call.
+                        </p>
+
+                        <div class="space-y-6">
+                            <a href="tel:0787712865" class="flex items-center gap-4 p-4 rounded-2xl bg-[#121226] border border-slate-800 hover:border-purple-500 transition group">
+                                <div class="w-12 h-12 rounded-xl bg-purple-900/50 flex items-center justify-center text-purple-400 text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 font-semibold uppercase block">Call Direct</span>
+                                    <span class="text-lg font-bold text-white">078 771 2865</span>
+                                </div>
+                            </a>
+
+                            <a href="https://wa.me/27787712865?text=Hi%20Werner,%20I'd%20like%20more%20details%20about%20a%20website." target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-[#121226] border border-slate-800 hover:border-emerald-500 transition group">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-900/50 flex items-center justify-center text-emerald-400 text-2xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 font-semibold uppercase block">Instant WhatsApp</span>
+                                    <span class="text-lg font-bold text-white">078 771 2865</span>
+                                </div>
+                            </a>
+
+                            <div class="flex items-center gap-4 p-4 rounded-2xl bg-[#121226] border border-slate-800">
+                                <div class="w-12 h-12 rounded-xl bg-blue-900/50 flex items-center justify-center text-blue-400 text-xl">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 font-semibold uppercase block">Location</span>
+                                    <span class="text-base font-bold text-white">Risiville, Meyerton, SA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Contact Form -->
+                <div class="p-8 sm:p-10 rounded-3xl bg-[#111126] border border-purple-900/40 glow-purple">
+                    <h3 class="text-2xl font-bold text-white mb-2">Request A Quick Quote</h3>
+                    <p class="text-slate-400 text-xs mb-6">Fill in your details and Werner will contact you shortly.</p>
+
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Your Name</label>
+                            <input type="text" id="formName" required placeholder="e.g. Johan Smith" class="w-full bg-[#090914] border border-slate-700 text-white rounded-xl p-3 focus:outline-none focus:border-purple-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Phone or WhatsApp Number</label>
+                            <input type="tel" id="formPhone" required placeholder="e.g. 082 123 4567" class="w-full bg-[#090914] border border-slate-700 text-white rounded-xl p-3 focus:outline-none focus:border-purple-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Preferred Package</label>
+                            <select id="formPackage" class="w-full bg-[#090914] border border-slate-700 text-white rounded-xl p-3 focus:outline-none focus:border-purple-500">
+                                <option value="Starter Plan (R300/pm)">Starter Plan - R300 / month</option>
+                                <option value="Pro Business (R500/pm)">Pro Business - R500 / month</option>
+                                <option value="Need Custom Info">I need more details / custom quote</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Tell us about your business</label>
+                            <textarea id="formMessage" rows="3" placeholder="What services do you offer?..." class="w-full bg-[#090914] border border-slate-700 text-white rounded-xl p-3 focus:outline-none focus:border-purple-500"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold text-base shadow-lg transition">
+                            Send Quote Request
+                        </button>
+                    </form>
+
+                    <!-- Alert Box -->
+                    <div id="formSuccess" class="hidden mt-4 p-4 rounded-xl bg-emerald-950/80 border border-emerald-600 text-emerald-300 text-xs text-center font-semibold">
+                        Thank you! Opening WhatsApp to send your request directly to Werner...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#05050A] border-t border-slate-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <p class="text-xl font-extrabold text-white">Wizzify <span class="text-purple-400">Webs</span></p>
+                <p class="text-xs text-slate-500 mt-1">Owner: Werner Roos | Risiville, Meyerton, South Africa</p>
+            </div>
+
+            <div class="flex items-center gap-6 text-sm text-slate-400">
+                <a href="#services" class="hover:text-purple-400">Services</a>
+                <a href="#pricing" class="hover:text-purple-400">Pricing</a>
+                <a href="#about" class="hover:text-purple-400">About</a>
+                <a href="tel:0787712865" class="hover:text-purple-400 font-bold text-purple-300">078 771 2865</a>
+            </div>
+
+            <p class="text-xs text-slate-600">
+                © <span id="year"></span> Wizzify Webs. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Action Button -->
+    <a href="https://wa.me/27787712865?text=Hi%20Werner,%20I'm%20interested%20in%20a%20website%20for%20my%20business!" target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-3xl shadow-xl shadow-emerald-950/80 hover:scale-110 transition-transform" title="Chat with Werner on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Update year dynamically
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Dynamic Interactive Cost Calculator Logic
+        const calcPages = document.getElementById('calcPages');
+        const calculatedTotal = document.getElementById('calculatedTotal');
+        const calculatorSubmit = document.getElementById('calculatorSubmit');
+
+        function updateCalculator() {
+            const val = parseInt(calcPages.value);
+            calculatedTotal.textContent = `R${val} / month`;
+        }
+
+        calcPages.addEventListener('change', updateCalculator);
+
+        calculatorSubmit.addEventListener('click', () => {
+            const selectedVal = calcPages.value;
+            const message = encodeURIComponent(`Hi Werner, I calculated an estimated package of R${selectedVal}/pm on your Wizzify Webs site. I'd like to get started!`);
+            window.open(`https://wa.me/27787712865?text=${message}`, '_blank');
+        });
+
+        // Contact Form Logic (Opens Direct WhatsApp Message)
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('formName').value;
+            const phone = document.getElementById('formPhone').value;
+            const pkg = document.getElementById('formPackage').value;
+            const msg = document.getElementById('formMessage').value;
+
+            formSuccess.classList.remove('hidden');
+
+            const fullMsg = `Hi Werner! New quote request from Wizzify Webs website:\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Package:* ${pkg}\n*Message:* ${msg}`;
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/27787712865?text=${encodeURIComponent(fullMsg)}`, '_blank');
+                formSuccess.classList.add('hidden');
+            }, 1200);
+        });
+    </script>
+</body>
+</html>
